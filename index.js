@@ -40,6 +40,6 @@ app.post('/posts', function(req, res) {
 });
 
 app.listen(3333, function(){
-    console.log('SERVER ZAPUSHEN!')
+    console.log('SERVER ZAPUSHEN!!')
 })
 
