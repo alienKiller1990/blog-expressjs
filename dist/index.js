@@ -34,6 +34,28 @@ app.get('/posts', (req, res) => {
     });
 });
 
+app.delete('/posts/:id', (req, res) => {
+    PostModel.remove({
+        _id: req.params.id
+    }).then(post => {
+
+        if (post) {
+            res.json({ status: 'deleted' });
+        } else {
+            res.json({ status: 'error' });
+        }
+    });
+});
+
+app.put('/posts/:id', (req, res) => {
+    PostModel.findByIdAndUpdate(req.params.id, { $set: req.body }, err => {
+        if (err) {
+            return res.send(err);
+        }
+        res.json({ status: 'updated' });
+    });
+});
+
 app.listen(3333, () => {
     console.log('server started!');
 });
