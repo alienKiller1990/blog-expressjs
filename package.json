@@ -3,19 +3,25 @@
   "version": "1.0.0",
   "description": "first-project-NodeJs",
   "main": "index.js",
+  "type": "module",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "mongoose": "^6.0.11"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1"
   },
   "scripts": {
-    "test": "run"
+    "build": "babel src -d dist",
+    "start": "node --trace-warnings dist/index.js",
+    "build-start": "npm run-script build && npm run-script start"
   },
   "author": "Pavel",
   "license": "ISC"
