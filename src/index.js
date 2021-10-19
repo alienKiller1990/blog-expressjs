@@ -10,6 +10,6 @@ const post = new PostModel({
 });
 
 post.save().then(() => {
-    console.log('Ok!')
+    console.log('Ok!!')
 })
 
