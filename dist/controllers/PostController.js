@@ -2,7 +2,7 @@ import PostModel from '../models/Post.js';
 
 class PostController {
 
-    index(res) {
+    index(req, res) {
         PostModel.find().then((err, posts) => {
             if (err) {
                 return res.send(err);
@@ -23,7 +23,7 @@ class PostController {
         });
     }
     read(req, res) {
-        PostModel.findOne({ _id: req.params.body }).then(post => {
+        PostModel.findOne({ _id: req.params.id }).then(post => {
             if (!post) {
                 res.send({ error: 'not found' });
             } else {
